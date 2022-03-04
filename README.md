@@ -104,9 +104,9 @@ Follow the [LMA Light on MicroK8s](https://juju.is/docs/lma2/on%20MicroK8s) tuto
 
 ```
 juju switch spring
-juju consume lma.prometheus-scrape prometheus
-juju consume lma.grafana-dashboards grafana
-juju consume lma.loki-logging loki
+juju consume cos.prometheus-scrape prometheus
+juju consume cos.grafana-dashboards grafana
+juju consume cos.loki-logging loki
 juju add-relation spring-music prometheus
 juju add-relation spring-music grafana
 juju add-relation spring-music loki
@@ -140,7 +140,7 @@ The `./juju_utils/juju-unit-address` bash script outputs the address and port of
 For example:
 
 ```sh
-$ ./juju_utils/juju-unit-address lma.prometheus/0
+$ ./juju_utils/juju-unit-address cos.prometheus/0
 10.1.151.75:9090
 ```
 
@@ -155,7 +155,7 @@ The `./juju_utils/browse-juju-unit` bash script opens the address and port of th
 For example:
 
 ```sh
-./juju_utils/browse-juju-unit lma.prometheus/0
+./juju_utils/browse-juju-unit cos.prometheus/0
 ```
 
 would result in Firefox opening something like the `10.1.151.75:9090` address.
