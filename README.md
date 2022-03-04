@@ -65,6 +65,12 @@ docker push localhost:32000/spring-music:latest
 
 The `localhost:32000` is the location of the registry integrated in MicroK8s.
 
+Alternatively, you can download the image via:
+
+```sh
+docker image pull ghcr.io/simskij/spring-music
+```
+
 ### Building the Spring Music charm
 
 ```sh
@@ -78,7 +84,13 @@ juju add-model spring
 juju deploy ./spring-music_ubuntu-20.04-amd64.charm spring-music --resource application-image=localhost:32000/spring-music
 ```
 
-Alternatively, the `./build_and_deploy_charm` automates the build and deploy (or refresh) of the charm in a model:
+Alternatively, a different registry could be used:
+
+```sh
+juju deploy ./spring-music_ubuntu-20.04-amd64.charm --resource application-image=ghcr.io/simskij/spring-music
+```
+
+Another alternative is the `./build_and_deploy_charm` script automates the build and deploy (or refresh) of the charm in a model:
 
 ```sh
 ./juju_utils/build_and_deploy_charm spring spring-music
